@@ -1,7 +1,7 @@
 public class Student extends Person{
     private double gpa;
 
-    public Student(int id, String firstName, String lastName) {
+    public Student(String id, String firstName, String lastName) {
         super(id, firstName, lastName);
         gpa = 0;
     }

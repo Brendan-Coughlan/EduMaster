@@ -1,15 +1,17 @@
+import java.util.ArrayList;
+
 public abstract class Person {
-    private int id;
+    private String id;
     private String firstName;
     private String lastName;
 
-    public Person(int id, String firstName, String lastName) {
+    public Person(String id, String firstName, String lastName) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public void setID(int id) {
+    public void setID(String id) {
         this.id = id;
     }
 
@@ -21,7 +23,7 @@ public abstract class Person {
         this.lastName = lastName;
     }
 
-    public int getID() {
+    public String getID() {
         return id;
     }
 
@@ -35,5 +37,15 @@ public abstract class Person {
 
     public String getFullName() {
         return firstName + " " + lastName;
+    }
+
+    public ArrayList<String> getList() {
+        return new ArrayList<String>() {
+            {
+                add(id);
+                add(firstName);
+                add(lastName);
+            }
+        };
     }
 }

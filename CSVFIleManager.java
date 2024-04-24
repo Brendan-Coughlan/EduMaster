@@ -52,12 +52,12 @@ public class CSVFIleManager {
         writer.close();
     }
 
-    public void writeToCSV(ArrayList<?> content) throws IOException {
+    public void writeToCSV(ArrayList<?> content, boolean rewrite) throws IOException {
         //Ends function if there is no content to add
         if (content.size() == 0)
             return;
 
-        FileWriter file = new FileWriter(fileName, true);
+        FileWriter file = new FileWriter(fileName, !rewrite);
         BufferedWriter writer = new BufferedWriter(file);
         //Loop through the content
         for (int i = 0; i < content.size(); i++) {

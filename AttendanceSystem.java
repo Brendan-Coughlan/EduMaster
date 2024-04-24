@@ -8,7 +8,12 @@ public class AttendanceSystem {
     private final String date;
     private HashMap<String, Boolean> attendanceRecords = new HashMap<String, Boolean>();
 
-    public AttendanceSystem(String date) {
+    public AttendanceSystem() throws IOException{
+        populateAttendane();
+        this.date = java.time.LocalDate.now().toString(); 
+    }
+
+    public AttendanceSystem(String date) throws IOException{
         populateAttendane();
         this.date = date;
     }
@@ -21,9 +26,12 @@ public class AttendanceSystem {
         return attendanceRecords.get(studentID);
     }
 
-    public void populateAttendane() {
-        for(int i = 0; i < 5; i++) {
-            attendanceRecords.put(Integer.toString(i), false);
+    public void populateAttendane() throws IOException{
+        CSVFIleManager studentsFile = new CSVFIleManager("Students.csv");
+        int i = 1;
+        while(studentsFile.readFromCSV(i) != null) {
+            attendanceRecords.put(studentsFile.readFromCSV(i).get(0), false);
+            i++;
         }
     }
 
