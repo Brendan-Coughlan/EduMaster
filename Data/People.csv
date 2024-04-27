@@ -1,0 +1,5 @@
+id,role,password,firstName,lastName
+000000001,Student,HSmith,Henry,Smith
+000000002,Teacher,EJohn,Elton,John
+000000003,Admin,JDoe,John,Doe
+000000004,Student,PGriffin,Peter,Griffin
