@@ -28,6 +28,7 @@ public class EduMaster {
             System.out.print("Enter Password: ");
             password = scnr.nextLine();
             if(password.toUpperCase().equals("EXIT"))
+                return;
             if (getPersonByID(id) != null && getPersonByID(id).checkPassword(password)) {
                 System.out.println("You are logged in");
                 break;
@@ -162,7 +163,8 @@ public class EduMaster {
                     break;
             }
         }
-        attendanceSystem.finalizeAttendance();
+        if(attendanceSystem != null)
+            attendanceSystem.finalizeAttendance();
         finalizeLists();
         scnr.close();
     }

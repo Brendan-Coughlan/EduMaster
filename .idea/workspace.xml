@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b746aabd-02fc-49b4-9e34-7c9e580de97a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/AttendanceSystem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSVFIleManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Attendance.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Attendance.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Classes.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Repository.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Students.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Person.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Student.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Teacher.java" beforeDir="false" />
+    <list default="true" id="b746aabd-02fc-49b4-9e34-7c9e580de97a" name="Changes" comment="Added more functionality to the EduMaster and started to add JavaDoc.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EduMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EduMaster.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,23 +16,35 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Brendan-Coughlan&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Brendan-Coughlan/School-Management-System.git&quot;,
+    &quot;accountId&quot;: &quot;31de0058-43dd-4780-9259-9736cb2f6348&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2fgrrZUomUG7u56r7ObBk1Sy8oH" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/bcoug/Desktop/Coding Projects/EduMaster"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/bcoug/Desktop/Coding Projects/EduMaster&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\bcoug\Desktop\Coding Projects\EduMaster\" />
@@ -110,6 +114,30 @@
       <option name="presentableId" value="Default" />
       <updated>1714233763349</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added more functionality to the EduMaster and started to add JavaDoc.">
+      <option name="closed" value="true" />
+      <created>1714242451585</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714242451585</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added more functionality to the EduMaster and started to add JavaDoc.">
+      <option name="closed" value="true" />
+      <created>1714242470572</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714242470572</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added more functionality to the EduMaster and started to add JavaDoc." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more functionality to the EduMaster and started to add JavaDoc." />
   </component>
 </project>
