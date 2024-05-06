@@ -3,5 +3,4 @@ id,role,password,firstName,lastName
 000000002,Teacher,EJohn,Elton,John
 000000003,Admin,JDoe,John,Doe
 000000004,Student,PGriffin,Peter,Griffin
-000000005,Student,BJasmine,Bill,Jasmine
- 
+000000005,Student,Password1234,Bill,Jasmine
