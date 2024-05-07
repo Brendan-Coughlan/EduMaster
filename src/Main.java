@@ -5,14 +5,6 @@ package src;
 
 import java.io.IOException;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SpringLayout;
-import java.awt.event.*;
-
 public class Main {
     public static void main(String[] args) throws IOException {
         EduMaster eduMaster = new EduMaster();

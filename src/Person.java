@@ -57,6 +57,10 @@ public abstract class Person {
         return password.equals(this.password);
     }
 
+    protected String getPassword() {
+        return password;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -77,6 +81,7 @@ public abstract class Person {
                 add(password);
                 add(firstName);
                 add(lastName);
+                add("N/A");
             }
         };
     }

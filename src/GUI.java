@@ -6,15 +6,7 @@ import java.awt.GridLayout;
 import java.awt.LayoutManager;
 import java.awt.event.*;
 import java.util.ArrayList;
-
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SpringLayout;
+import javax.swing.*;
 
 public class GUI implements ActionListener {
     private JFrame frame;
@@ -26,6 +18,7 @@ public class GUI implements ActionListener {
             new JButton("Change Psssword"),
             new JButton("Take Attendance"),
             new JButton("Create User"),
+            new JButton("Add Grade"),
             new JButton("Exit"),
     };
     private JTextField textFields[] = {
@@ -34,6 +27,9 @@ public class GUI implements ActionListener {
         new JTextField(9),
         new JTextField(9),
         new JTextField(9),
+        new JTextField(3),
+        new JTextField(3),
+        new JTextField(6),
 };
     private int action = 0;
     private boolean pressed = false;
@@ -68,18 +64,19 @@ public class GUI implements ActionListener {
         panel.add(new JLabel("Password: "));
         panel.add(textFields[1]);
         panel.add(buttons[0]);
-        panel.add(buttons[4]);
+        panel.add(buttons[5]);
 
         frame.setVisible(true);
     }
 
     public void createActionsFrame() {
-        createFrame("Actions", 220, 200, new GridLayout());
+        createFrame("Actions", 160, 200, new GridLayout());
 
         panel.add(buttons[1]);
         panel.add(buttons[2]);
         panel.add(buttons[3]);
         panel.add(buttons[4]);
+        panel.add(buttons[5]);
 
         frame.setVisible(true);
     }
@@ -92,7 +89,7 @@ public class GUI implements ActionListener {
         panel.add(new JLabel("New Password: "));
         panel.add(textFields[2]);
         panel.add(buttons[0]);
-        panel.add(buttons[4]);
+        panel.add(buttons[5]);
 
         frame.setVisible(true);
     }
@@ -103,18 +100,37 @@ public class GUI implements ActionListener {
             panel.add(new JCheckBox(student.getFullName()));
         }
         panel.add(buttons[0]);
-        panel.add(buttons[4]);
+        panel.add(buttons[5]);
 
         frame.setVisible(true);
     }
 
     public void createNewUserFrame() {
         createFrame("Create User", 100, 300, new GridLayout());
+        panel.add(new JLabel("First Name: "));
         panel.add(textFields[3]);
+        panel.add(new JLabel("Last Name: "));
         panel.add(textFields[4]);
+        panel.add(new JLabel("Role: "));
         panel.add(roleDropdown);
         panel.add(buttons[0]);
-        panel.add(buttons[4]);
+        panel.add(buttons[5]);
+
+        frame.setVisible(true);
+    }
+
+    public void createNewGradeFrame() {
+        createFrame("New Grade", 375, 100, new GridLayout());
+        panel.add(new JLabel("ID: "));
+        panel.add(textFields[0]);
+        panel.add(new JLabel("Grade: "));
+        panel.add(textFields[5]);
+        panel.add(new JLabel("Title: "));
+        panel.add(textFields[6]);
+        panel.add(new JLabel("Date (Optional): "));
+        panel.add(textFields[7]);
+        panel.add(buttons[0]);
+        panel.add(buttons[5]);
 
         frame.setVisible(true);
     }
