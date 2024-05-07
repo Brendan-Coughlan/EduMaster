@@ -36,7 +36,7 @@ public class EduMaster {
                     }
                     if (getPersonByID(id).checkPassword(password)) {
                         currentUser = getPersonByID(id);
-                        gui.createActionsFrame();
+                        gui.createActionsFrame(currentUser.getRole());
                         gui.setButtonPressed(false);
                         break;
                     } else {
@@ -80,10 +80,19 @@ public class EduMaster {
                     case 5:
                         exitProgram = true;
                         break;
+                    case 6:
+                        gui.createProfileFrame(currentUser);
+                        viewProfile();
+                        break;
                 }
             }
         }
+        calculateGPA();
+        gui.close();
+        finalizeLists();
+    }
 
+    private void calculateGPA() throws IOException{
         for(Student student : students) {
             CSVFIleManager gradebookFile = new CSVFIleManager("Data/Gradebook-" + student.getID() + ".csv");
             int currentGPA = 0;
@@ -100,11 +109,7 @@ public class EduMaster {
                 currentGPA /= (i-1);
             }
             student.setGPA(currentGPA);
-            System.out.println(currentGPA);
         }
-
-        gui.close();
-        finalizeLists();
     }
 
     private void populateLists() throws IOException {
@@ -167,8 +172,9 @@ public class EduMaster {
         while (!gui.getButtonPressed()) {
             System.out.print("");
         }
-        if (gui.getAction() == 5) {
-            exitProgram = true;
+        if (gui.getAction() == 7) {
+            gui.setButtonPressed(false);
+            gui.createActionsFrame(currentUser.getRole());
             return;
         }
         ArrayList<Boolean> marks = gui.getAttendanceMarks();
@@ -179,15 +185,16 @@ public class EduMaster {
         }
         attendanceSystem.finalizeAttendance();
         gui.setButtonPressed(false);
-        gui.createActionsFrame();
+        gui.createActionsFrame(currentUser.getRole());
     }
 
     private void createProfile() {
         while (!gui.getButtonPressed()) {
             System.out.print("");
         }
-        if (gui.getAction() == 5) {
-            exitProgram = true;
+        if (gui.getAction() == 7) {
+            gui.setButtonPressed(false);
+            gui.createActionsFrame(currentUser.getRole());
             return;
         }
 
@@ -222,22 +229,23 @@ public class EduMaster {
         }
         persons.add(newPerson);
         gui.setButtonPressed(false);
-        gui.createActionsFrame();
+        gui.createActionsFrame(currentUser.getRole());
     }
 
-    public void changePassword() {
+    private void changePassword() {
         gui.setTextField(1, "");
         while (!gui.getButtonPressed()) {
             System.out.print("");
         }
-        if (gui.getAction() == 5) {
-            exitProgram = true;
+        if (gui.getAction() == 7) {
+            gui.setButtonPressed(false);
+            gui.createActionsFrame(currentUser.getRole());
             return;
         }
         if (currentUser.checkPassword(gui.getTextField(1))) {
             currentUser.changePassword(gui.getTextField(1), gui.getTextField(2));
             gui.setButtonPressed(false);
-            gui.createActionsFrame();
+            gui.createActionsFrame(currentUser.getRole());
         } else {
             gui.showIncorrectLabel("Incorrect passowrd");
             gui.setButtonPressed(false);
@@ -245,20 +253,21 @@ public class EduMaster {
         }
     }
 
-    public void addGrade() throws IOException{
+    private void addGrade() throws IOException{
         gui.setTextField(0, "");
         while (!gui.getButtonPressed()) {
             System.out.print("");
         }
-        if (gui.getAction() == 5) {
-            exitProgram = true;
+        if (gui.getAction() == 7) {
+            gui.setButtonPressed(false);
+            gui.createActionsFrame(currentUser.getRole());
             return;
         }
         if (getPersonByID(gui.getTextField(0)) != null) {
             if(getPersonByID(gui.getTextField(0)).getRole() == Person.Role.Student) {
                 gradebook.recordGrade(gui.getTextField(0), "Title", Integer.parseInt(gui.getTextField(5)));
                 gui.setButtonPressed(false);
-                gui.createActionsFrame();
+                gui.createActionsFrame(currentUser.getRole());
             }
             else {
                 gui.showIncorrectLabel("Not a Student");
@@ -269,6 +278,17 @@ public class EduMaster {
             gui.showIncorrectLabel("Invalid ID");
             gui.setButtonPressed(false);
             addGrade();
+        }
+    }
+
+    private void viewProfile() {
+        while (!gui.getButtonPressed()) {
+            System.out.print("");
+        }
+        if (gui.getAction() == 7) {
+            gui.setButtonPressed(false);
+            gui.createActionsFrame(currentUser.getRole());
+            return;
         }
     }
 }

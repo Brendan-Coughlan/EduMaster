@@ -20,6 +20,8 @@ public class GUI implements ActionListener {
             new JButton("Create User"),
             new JButton("Add Grade"),
             new JButton("Exit"),
+            new JButton("View Profile"),
+            new JButton("Back"),
     };
     private JTextField textFields[] = {
         new JTextField(9),
@@ -69,14 +71,30 @@ public class GUI implements ActionListener {
         frame.setVisible(true);
     }
 
-    public void createActionsFrame() {
+    public void createActionsFrame(Person.Role role) {
         createFrame("Actions", 160, 200, new GridLayout());
 
-        panel.add(buttons[1]);
-        panel.add(buttons[2]);
-        panel.add(buttons[3]);
-        panel.add(buttons[4]);
-        panel.add(buttons[5]);
+        switch(role) {
+            case Student:
+                panel.add(buttons[1]);
+                panel.add(buttons[6]);
+                panel.add(buttons[5]);
+                break;
+            case Teacher:
+                panel.add(buttons[1]);
+                panel.add(buttons[2]);
+                panel.add(buttons[4]);
+                panel.add(buttons[6]);
+                panel.add(buttons[5]);
+                break;
+            case Admin:
+                panel.add(buttons[1]);
+                panel.add(buttons[3]);
+                panel.add(buttons[4]);
+                panel.add(buttons[6]);
+                panel.add(buttons[5]);
+                break;
+        }
 
         frame.setVisible(true);
     }
@@ -89,19 +107,21 @@ public class GUI implements ActionListener {
         panel.add(new JLabel("New Password: "));
         panel.add(textFields[2]);
         panel.add(buttons[0]);
-        panel.add(buttons[5]);
+        panel.add(buttons[7]);
 
         frame.setVisible(true);
     }
 
     public void createAttendanceFrame(ArrayList<Student> students) {
-        createFrame("Attendance", 250, 500, new GridLayout());
+        createFrame("Attendance", 225, 500, new GridLayout());
         for(Student student : students) {
             panel.add(new JCheckBox(student.getFullName()));
         }
+        
+        panel.add(new JLabel("Date (Optional): "));
+        panel.add(textFields[7]);
         panel.add(buttons[0]);
-        panel.add(buttons[5]);
-
+        panel.add(buttons[7]);
         frame.setVisible(true);
     }
 
@@ -114,7 +134,7 @@ public class GUI implements ActionListener {
         panel.add(new JLabel("Role: "));
         panel.add(roleDropdown);
         panel.add(buttons[0]);
-        panel.add(buttons[5]);
+        panel.add(buttons[7]);
 
         frame.setVisible(true);
     }
@@ -130,7 +150,20 @@ public class GUI implements ActionListener {
         panel.add(new JLabel("Date (Optional): "));
         panel.add(textFields[7]);
         panel.add(buttons[0]);
-        panel.add(buttons[5]);
+        panel.add(buttons[7]);
+
+        frame.setVisible(true);
+    }
+
+    public void createProfileFrame(Person person) {
+        createFrame("Profile", 375, 100, new GridLayout());
+        ArrayList<String> list = person.getList();
+        panel.add(new JLabel("ID: " + list.get(0)));
+        panel.add(new JLabel("Role: " + list.get(1)));
+        panel.add(new JLabel("First Name: " + list.get(3)));
+        panel.add(new JLabel("Last Name: " + list.get(4)));
+        panel.add(new JLabel("GPA: " + list.get(5)));
+        panel.add(buttons[7]);
 
         frame.setVisible(true);
     }
@@ -142,7 +175,6 @@ public class GUI implements ActionListener {
                 break;
             }
         }
-        System.out.println("Pressed");
         pressed = true;
     }
 
