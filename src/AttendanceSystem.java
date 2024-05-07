@@ -7,7 +7,7 @@ import java.util.Map;
 /** This class is used for keeping track and marking the attendance for a given date. */
 public class AttendanceSystem {
     /** The date of the attendance record. */
-    private final String date;
+    private String date;
     /** The HashMap of the attendance record with the String being the ID of each student. */
     private HashMap<String, Boolean> attendanceRecords = new HashMap<String, Boolean>();
 
@@ -18,11 +18,8 @@ public class AttendanceSystem {
         }
     }
 
-    public AttendanceSystem(String date, ArrayList<Student> students) throws IOException{
+    public void setDate(String date) {
         this.date = date;
-        for(Student student : students) {
-            attendanceRecords.put(student.getID(), false);
-        }
     }
 
     /**

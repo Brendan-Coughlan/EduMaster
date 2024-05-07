@@ -113,7 +113,7 @@ public class GUI implements ActionListener {
     }
 
     public void createAttendanceFrame(ArrayList<Student> students) {
-        createFrame("Attendance", 225, 500, new GridLayout());
+        createFrame("Attendance", 400, 500, new GridLayout());
         for(Student student : students) {
             panel.add(new JCheckBox(student.getFullName()));
         }
@@ -140,7 +140,7 @@ public class GUI implements ActionListener {
     }
 
     public void createNewGradeFrame() {
-        createFrame("New Grade", 375, 100, new GridLayout());
+        createFrame("New Grade", 400, 200, new GridLayout());
         panel.add(new JLabel("ID: "));
         panel.add(textFields[0]);
         panel.add(new JLabel("Grade: "));

@@ -92,21 +92,20 @@ public class EduMaster {
         finalizeLists();
     }
 
-    private void calculateGPA() throws IOException{
-        for(Student student : students) {
+    private void calculateGPA() throws IOException {
+        for (Student student : students) {
             CSVFIleManager gradebookFile = new CSVFIleManager("Data/Gradebook-" + student.getID() + ".csv");
             int currentGPA = 0;
-            int i  = 1;
-            while(gradebookFile.readFromCSV(i) != null) {
+            int i = 1;
+            while (gradebookFile.readFromCSV(i) != null) {
                 currentGPA += Integer.parseInt(gradebookFile.readFromCSV(i).get(2));
                 i++;
             }
 
-            if(i == 1) {
+            if (i == 1) {
                 currentGPA /= i;
-            }
-            else {
-                currentGPA /= (i-1);
+            } else {
+                currentGPA /= (i - 1);
             }
             student.setGPA(currentGPA);
         }
@@ -122,7 +121,7 @@ public class EduMaster {
                 case "Student":
                     newPerson = new Student(line.get(0), Person.Role.valueOf(line.get(1)), line.get(2), line.get(3),
                             line.get(4));
-                    ((Student)newPerson).setGPA(Integer.parseInt(line.get(5)));
+                    ((Student) newPerson).setGPA(Integer.parseInt(line.get(5)));
                     students.add((Student) newPerson);
                     break;
                 case "Teacher":
@@ -182,6 +181,9 @@ public class EduMaster {
             if (marks.get(i)) {
                 attendanceSystem.markAttendance(students.get(i).getID());
             }
+        }
+        if (!gui.getTextField(7).equals("")) {
+            attendanceSystem.setDate(gui.getTextField(7));
         }
         attendanceSystem.finalizeAttendance();
         gui.setButtonPressed(false);
@@ -253,7 +255,7 @@ public class EduMaster {
         }
     }
 
-    private void addGrade() throws IOException{
+    private void addGrade() throws IOException {
         gui.setTextField(0, "");
         while (!gui.getButtonPressed()) {
             System.out.print("");
@@ -264,12 +266,23 @@ public class EduMaster {
             return;
         }
         if (getPersonByID(gui.getTextField(0)) != null) {
-            if(getPersonByID(gui.getTextField(0)).getRole() == Person.Role.Student) {
-                gradebook.recordGrade(gui.getTextField(0), "Title", Integer.parseInt(gui.getTextField(5)));
-                gui.setButtonPressed(false);
-                gui.createActionsFrame(currentUser.getRole());
-            }
-            else {
+            if (getPersonByID(gui.getTextField(0)).getRole() == Person.Role.Student) {
+                if (!gui.getTextField(6).equals("")) {
+                    if (gui.getTextField(7).equals("")) {
+                        gradebook.recordGrade(gui.getTextField(0), gui.getTextField(6),
+                                Integer.parseInt(gui.getTextField(5)));
+                    } else {
+                        gradebook.recordGrade(gui.getTextField(0), gui.getTextField(6), gui.getTextField(7),
+                                Integer.parseInt(gui.getTextField(5)));
+                    }
+                    gui.setButtonPressed(false);
+                    gui.createActionsFrame(currentUser.getRole());
+                } else {
+                    gui.showIncorrectLabel("Need a Title");
+                    gui.setButtonPressed(false);
+                    addGrade();
+                }
+            } else {
                 gui.showIncorrectLabel("Not a Student");
                 gui.setButtonPressed(false);
                 addGrade();

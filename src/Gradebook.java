@@ -16,7 +16,7 @@ public class Gradebook {
     }
 
 
-    public static void recordGrade(String id, String title, String date, int grade) throws IOException{
+    public void recordGrade(String id, String title, String date, int grade) throws IOException{
         CSVFIleManager gradebook = new CSVFIleManager("Data/Gradebook-" + id + ".csv");
         if(gradebook.readFromCSV(0) == null || gradebook.readFromCSV(0).isEmpty()) {
             gradebook.writeToCSV("title", false);
