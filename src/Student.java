@@ -10,7 +10,11 @@ public class Student extends Person{
     private int gpa;
 
     /**
-     * Admin is the subclass of Person
+     * The constructor for Student class
+     * @param id the unique 9-digit ID for this person
+     * @param role the role of this person
+     * @param firstName the first name for this person
+     * @param lastName the last name for this person
      * */
     public Student(String id, Role role, String password, String firstName, String lastName) {
         super(id, role, password, firstName, lastName);

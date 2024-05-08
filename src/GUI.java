@@ -6,12 +6,30 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import javax.swing.*;
 
+/**
+ * GUI for EduMaster
+ * */
 public class GUI implements ActionListener {
+    /**
+     * The main frame for the GUI
+     * */
     private JFrame frame;
+    /**
+     * The main panel for the GUI
+     * */
     private JPanel panel;
-    String roles[] = {"Student", "Teacher", "Admin"};
+    /**
+     * The roles that can be chosen
+     * */
+    String[] roles = {"Student", "Teacher", "Admin"};
+    /**
+     * The dropdown to select role
+     * */
     JComboBox<String> roleDropdown = new JComboBox<String>(roles);
-    private JButton buttons[] = {
+    /**
+     * The buttons in the GUI
+     * */
+    private JButton[] buttons = {
             new JButton("Enter"),
             new JButton("Change Psssword"),
             new JButton("Take Attendance"),
@@ -21,7 +39,10 @@ public class GUI implements ActionListener {
             new JButton("View Profile"),
             new JButton("Back"),
     };
-    private JTextField textFields[] = {
+    /**
+     * The text fields in the GUI
+     * */
+    private JTextField[] textFields = {
         new JTextField(9),
         new JTextField(9),
         new JTextField(9),
@@ -31,16 +52,32 @@ public class GUI implements ActionListener {
         new JTextField(3),
         new JTextField(6),
 };
+    /**
+     * The action performed
+     * */
     private int action = 0;
+    /**
+     * Has a button been pressed
+     * */
     private boolean pressed = false;
 
+    /**
+     * The constructor for the GUI
+     * */
     GUI() {
         createLoginFrame();
         for (JButton button : buttons) {
             button.addActionListener(this);
         }
     }
-    
+
+    /**
+     * Creates a new empty frame with parameters
+     * @param title the title of the frame
+     * @param x the width of the frame
+     * @param y the height of the frame
+     * @param layout the layout for the frame
+     * */
     private void createFrame(String title, int x, int y, LayoutManager layout) {
         if (frame != null)
             frame.dispose();
@@ -56,6 +93,9 @@ public class GUI implements ActionListener {
         frame.setResizable(false);
     }
 
+    /**
+     * Creates a login frame for EduMaster
+     * */
     public void createLoginFrame() {
         createFrame("Login", 440, 100, new GridLayout());
 
@@ -69,6 +109,10 @@ public class GUI implements ActionListener {
         frame.setVisible(true);
     }
 
+    /**
+     * Creates actions frame for EduMaster with the options based on the role of the user
+     * @param role the role of the user
+     * */
     public void createActionsFrame(Person.Role role) {
         createFrame("Actions", 160, 200, new GridLayout());
 
@@ -97,6 +141,9 @@ public class GUI implements ActionListener {
         frame.setVisible(true);
     }
 
+    /**
+     * Creates a change password frame for EduMaster
+     * */
     public void createChangePasswordFrame() {
         createFrame("Change Password", 475, 100, new GridLayout());
 
@@ -110,6 +157,10 @@ public class GUI implements ActionListener {
         frame.setVisible(true);
     }
 
+    /**
+     * Creates an attendance frame for the EduMaster
+     * @param students the stuudents in the EduMaster
+     * */
     public void createAttendanceFrame(ArrayList<Student> students) {
         createFrame("Attendance", 400, 500, new GridLayout());
         for(Student student : students) {
@@ -123,6 +174,9 @@ public class GUI implements ActionListener {
         frame.setVisible(true);
     }
 
+    /**
+     * Creates a new user frame for EduMaster
+     * */
     public void createNewUserFrame() {
         createFrame("Create User", 100, 300, new GridLayout());
         panel.add(new JLabel("First Name: "));
@@ -137,6 +191,9 @@ public class GUI implements ActionListener {
         frame.setVisible(true);
     }
 
+    /**
+     * Creates a new grade frame for EduMaster
+     * */
     public void createNewGradeFrame() {
         createFrame("New Grade", 400, 200, new GridLayout());
         panel.add(new JLabel("ID: "));
@@ -153,6 +210,10 @@ public class GUI implements ActionListener {
         frame.setVisible(true);
     }
 
+    /**
+     * Creates a view profile frame for EduMaster
+     * @param person the person whose profile is being viewed
+     * */
     public void createProfileFrame(Person person) {
         createFrame("Profile", 375, 100, new GridLayout());
         ArrayList<String> list = person.getList();
@@ -166,6 +227,9 @@ public class GUI implements ActionListener {
         frame.setVisible(true);
     }
 
+    /**
+     * Runs if an Ac
+     * */
     public void actionPerformed(ActionEvent e) {
         for(int i = 0; i < buttons.length; i++) {
             if (e.getSource().equals(buttons[i])) {

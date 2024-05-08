@@ -1,7 +1,7 @@
 
 /*
- * This program runs a console that can be used to view and edit infomration in a school system, such as giving grades and marking attendance
- */
+ * Runs the main function which starts the program
+ **/
 
 import java.io.IOException;
 
