@@ -1,5 +1,5 @@
 id,role,password,firstName,lastName,gpa
-000000001,Student,JDoe,John,Doe,0
+000000001,Student,Password,John,Doe,85
 000000002,Student,ASmith,Alice,Smith,0
 000000003,Student,DJohnson,David,Johnson,0
 000000004,Student,SWilliams,Sarah,Williams,0
@@ -29,3 +29,4 @@ id,role,password,firstName,lastName,gpa
 000000028,Teacher,AMurphy,Andrew,Murphy,N/A
 000000029,Teacher,SStewart,Samantha,Stewart,N/A
 000000030,Admin,BAdams,Bob,Adams,N/A
+000000031,Student,TMcdonald,Todd,Mcdonald,0

@@ -5,13 +5,33 @@ import java.util.Map;
 
 /** This class is used for keeping track and marking the attendance for a given date. */
 public class AttendanceSystem {
-    /** The date of the attendance record. */
+    /**
+     *The date of the attendance record
+     * */
     private String date;
-    /** The HashMap of the attendance record with the String being the ID of each student. */
+    /**
+     * The  attendance record with the String being the ID of each studen
+     * */
     private HashMap<String, Boolean> attendanceRecords = new HashMap<String, Boolean>();
 
+    /**
+     * The constructor for AttendanceSystem, initalizing all attendance to false
+     * @param students the students that attendance is being taken for
+     * */
     public AttendanceSystem(ArrayList<Student> students) throws IOException{
         this.date = java.time.LocalDate.now().toString();
+        for(Student student : students) {
+            attendanceRecords.put(student.getID(), false);
+        }
+    }
+
+    /**
+     * The constructor for AttendanceSystem, initalizing all attendance to false
+     * @param students the students taking attendance for
+     * @param date the date that attendance is being taken for
+     * */
+    public AttendanceSystem(ArrayList<Student> students, String date) throws IOException{
+        this.date = date;
         for(Student student : students) {
             attendanceRecords.put(student.getID(), false);
         }

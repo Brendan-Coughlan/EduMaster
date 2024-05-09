@@ -165,7 +165,6 @@ public class EduMaster {
     }
 
     private void takeAttendance() throws IOException {
-        attendanceSystem = new AttendanceSystem(students);
         while (!gui.getButtonPressed()) {
             System.out.print("");
         }
@@ -175,6 +174,12 @@ public class EduMaster {
             return;
         }
         ArrayList<Boolean> marks = gui.getAttendanceMarks();
+        if(gui.getTextField(7).equals("")) {
+            attendanceSystem = new AttendanceSystem(students);
+        }
+        else {
+            attendanceSystem = new AttendanceSystem(students, gui.getTextField(7));
+        }
         for (int i = 0; i < students.size(); i++) {
             if (marks.get(i)) {
                 attendanceSystem.markAttendance(students.get(i).getID());
