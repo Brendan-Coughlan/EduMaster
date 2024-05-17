@@ -1,23 +1,58 @@
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * The main program and features for EduMaster
+ */
 public class EduMaster {
+    /**
+    * All the people in the data
+    */
     private ArrayList<Person> persons = new ArrayList<Person>();
+    /**
+    * All the students in the data
+    */
     private ArrayList<Student> students = new ArrayList<Student>();
+    /**
+    * All the teachers in the data
+    */
     private ArrayList<Teacher> teachers = new ArrayList<Teacher>();
+    /**
+     * All the admins in the data
+     */
     private ArrayList<Admin> admins = new ArrayList<Admin>();
-
+    /**
+     * Instance of attendance system
+     */
     private AttendanceSystem attendanceSystem;
+    /**
+     * Instance of gradebook system
+     */
     private Gradebook gradebook = new Gradebook();
+    /**
+     * Instance of GUI
+     */
     private GUI gui;
+    /**
+     * The current user
+     */
     private Person currentUser;
+    /**
+     * Should the program end
+     */
     private boolean exitProgram = false;
 
+    /**
+     * The constructor for EduMaster
+     */
     public EduMaster() throws IOException {
         populateLists();
         gui = new GUI();
     }
 
+    /**
+     * Starts the program
+     */
     public void startProgram() throws IOException {
         String id = "";
         String password = "";
@@ -90,6 +125,9 @@ public class EduMaster {
         finalizeLists();
     }
 
+    /**
+     * Calculates the GPA for all the students in the data
+     */
     private void calculateGPA() throws IOException {
         for (Student student : students) {
             CSVFIleManager gradebookFile = new CSVFIleManager("Data/Gradebook-" + student.getID() + ".csv");
@@ -109,6 +147,9 @@ public class EduMaster {
         }
     }
 
+    /**
+     * Populates each ArrayList with all the users from the CSV file
+     */
     private void populateLists() throws IOException {
         CSVFIleManager studentsFile = new CSVFIleManager("Data/People.csv");
         int i = 1;
@@ -138,6 +179,9 @@ public class EduMaster {
         }
     }
 
+    /**
+     * Rewrites the CSV file with the updated information
+     */
     private void finalizeLists() throws IOException {
         CSVFIleManager peopleFile = new CSVFIleManager("Data/People.csv");
         ArrayList<String> headers = new ArrayList<String>() {
@@ -156,6 +200,11 @@ public class EduMaster {
         }
     }
 
+    /**
+     * Searches through the list to find a person by their ID
+     * @param id the id of the person being searched
+     * @return the person who has that ID or null if no one has that ID
+     */
     private Person getPersonByID(String id) {
         for (Person person : persons) {
             if (person.getID().equals(id))
@@ -164,6 +213,9 @@ public class EduMaster {
         return null;
     }
 
+    /**
+     * Takes information from the attendance frame and writes it to the CSV file
+     */
     private void takeAttendance() throws IOException {
         while (!gui.getButtonPressed()) {
             System.out.print("");
@@ -193,6 +245,9 @@ public class EduMaster {
         gui.createActionsFrame(currentUser.getRole());
     }
 
+    /**
+     * Takes information from the create profile frame and creates a new object with those values
+     */
     private void createProfile() {
         while (!gui.getButtonPressed()) {
             System.out.print("");
@@ -237,6 +292,9 @@ public class EduMaster {
         gui.createActionsFrame(currentUser.getRole());
     }
 
+    /**
+     * Takes information from the change password frame and changes the user's password to the new password
+     */
     private void changePassword() {
         gui.setTextField(1, "");
         while (!gui.getButtonPressed()) {
@@ -258,6 +316,9 @@ public class EduMaster {
         }
     }
 
+    /**
+     * Adds grade to the gradebook of a student
+     */
     private void addGrade() throws IOException {
         gui.setTextField(0, "");
         while (!gui.getButtonPressed()) {
@@ -297,6 +358,9 @@ public class EduMaster {
         }
     }
 
+    /**
+     * Takes information from the create profile frame and creates a new object with those values
+     */
     private void viewProfile() {
         while (!gui.getButtonPressed()) {
             System.out.print("");

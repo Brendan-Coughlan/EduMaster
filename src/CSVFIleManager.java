@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * The purpose of this class is to convert and write any given data into CSV format.
+ * Convert and write given data into CSV format, as well as reads CSV files
  */
 
 public class CSVFIleManager {

@@ -21,11 +21,11 @@ public class GUI implements ActionListener {
     /**
      * The roles that can be chosen
      * */
-    String[] roles = {"Student", "Teacher", "Admin"};
+    private String[] roles = {"Student", "Teacher", "Admin"};
     /**
      * The dropdown to select role
      * */
-    JComboBox<String> roleDropdown = new JComboBox<String>(roles);
+    private JComboBox<String> roleDropdown = new JComboBox<String>(roles);
     /**
      * The buttons in the GUI
      * */
@@ -228,7 +228,8 @@ public class GUI implements ActionListener {
     }
 
     /**
-     * Runs if an Ac
+     * Runs when a button has been pressed
+     * @param e the ActionEvent that occurred
      * */
     public void actionPerformed(ActionEvent e) {
         for(int i = 0; i < buttons.length; i++) {
@@ -240,6 +241,10 @@ public class GUI implements ActionListener {
         pressed = true;
     }
 
+    /**
+     * Gets an ArrayList of the students who were marked present in boolean form
+     * @return the ArrayList of the attendance marks
+     * */
     public ArrayList<Boolean> getAttendanceMarks() {
         ArrayList<Boolean> marks = new ArrayList<Boolean>();
         for(Component component : panel.getComponents()) {
@@ -250,34 +255,67 @@ public class GUI implements ActionListener {
         return marks;
     }
 
+    /**
+     * Closes the current frame
+     * */
     public void close() {
         frame.dispose();
     }
 
+    /**
+     * Returns the selected role on the dropdown menu
+     * @return the current role in the dropdown
+     * */
     public Person.Role getSelectedRole() {
         return Person.Role.valueOf(roleDropdown.getSelectedItem().toString());
     }
 
+    /**
+     * Runs the text in a specified text field
+     * @param i the index of the text field
+     * @return the text in that text field
+     * */
     public String getTextField(int i) {
         return textFields[i].getText();
     }
-    
+
+    /**
+     * Sets the text of a specified text field to the given value
+     * @param i the index of text field
+     * @param text the new text value
+     * */
     public void setTextField(int i, String text) {
         textFields[i].setText(text);
     }
 
+    /**
+     * Returns if a button has been pressed
+     * @return if a button has been pressed
+     * */
     public boolean getButtonPressed() {
         return pressed;
     }
 
+    /**
+     * Sets the pressed state to the given value
+     * @param pressed the new state of the pressed boolean
+     * */
     public void setButtonPressed(boolean pressed) {
         this.pressed = pressed;
     }
 
+    /**
+     * Returns the action the button that has been pressed is paired to
+     * @return the action performed
+     * */
     public int getAction() {
         return action;
     }
 
+    /**
+     * Shows a message of the given text on the frame
+     * @param text the given text
+     * */
     public void showIncorrectLabel(String text) {
         for(Component comp : panel.getComponents()) {
             if(comp instanceof JLabel && ((JLabel)comp).getText().equals(text))

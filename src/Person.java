@@ -11,7 +11,7 @@ public abstract class Person {
     /**
      * The role of this person
      * */
-    private Role role = Role.Student;
+    private Role role;
     /**
      * The unique 9-digit id for this person
      * */

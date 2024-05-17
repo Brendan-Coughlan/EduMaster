@@ -1,8 +1,3 @@
-
-/*
- * Runs the main function which starts the program
- **/
-
 import java.io.IOException;
 
 public class Main {
